@@ -1,0 +1,497 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+	color: yellow;
+	font-family: heavy_data, arial, sans-serif;
+}
+
+#logo {
+    height: 40px;
+    width: 40;
+    padding-top: 5px;
+    float:left;
+    border-radius: 8px;
+}
+
+#userM {
+	margin: auto;
+	position: fixed;
+	top: 27%;
+	left: 1%;
+	color: yellow;
+	font-size: 2.5em;
+	text-align: center !important;
+	width: 100%;
+}
+
+#userScreen {
+	position: fixed;
+	top: 20%;
+	left: 40.5%;
+    height: 200px;
+    width: 400px;
+    padding-top: 5px;
+    opacity: 0.75;
+	text-align: center;
+    background-color: rgb(0,34,7);
+	border-style:solid;
+	border-color: black;
+	border-width: 5px;
+}
+
+nav {
+	position: fixed !important;
+    width: 110%;
+	margin-top: -15px;
+	margin-left: -15px;
+    height: 60px;
+	opacity: 0.75;
+    background-color: rgb(0,34,7);
+	border-style:solid;
+	border-color: black;
+	border-width: 5px;
+}
+
+#navi {
+	position: fixed !important;
+    left: 2.9%;
+	width: 100%;
+}
+
+#loginBorder {
+	z-index: -1;
+	position: fixed;
+	left: 43%;
+	top: 59.5%;
+    width: 300px;
+    height: 335px;
+	opacity: 0.6;
+    background-color: rgb(0,34,7);
+	pointer-events: none;
+}
+
+#border2 {
+	z-index: -1;
+	position: fixed;
+	left: 43% !important;
+	top: 59.5% !important;
+	pointer-events: none;
+}
+
+#borderOther {
+	z-index: -1;
+	position: fixed;
+	left: 39.4%;
+	top: 9.8%;
+    width: 450px;
+    height: 750px;
+	opacity: 0.6;
+    background-color: rgb(0,34,7);
+	pointer-events: none;
+}
+
+#border3 {
+	z-index: -1;
+	position: fixed;
+	width: 450px;
+	left: 39.4% !important;
+	top: 9.8% !important;
+	pointer-events: none;
+}
+
+#art {
+	z-index: -2;
+	position: fixed;
+	left: 31.6%;
+	top: 4%;
+    width: 700px;
+	border-style:solid;
+	border-color: black;
+	border-width: 15px;
+    background-color: rgb(0,34,7);
+	opacity: 0.8;
+	pointer-events: none;
+}
+
+nav:nth-child(1) {
+    padding-left: 75px;
+}
+
+.navlink {
+    padding-top: 12px;
+    padding-left: 10%;
+    color: white;
+    font-size: 1.3em;
+    float: left;
+	outline: none;
+}
+
+.navlink a, .navlink a:link, .navlink a:visited, .navlink a:hover, .navlink a:active {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 4px;
+    transition: color 2s ease;
+}
+
+.navlink a:focus {
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 4px;
+    color: yellow;
+    transition: color 0.4s ease;
+}
+
+.statsForm {
+    height: 35px;
+    width: 900px;
+    margin-top:0px;
+    padding-top:10px;
+}
+
+.statsForm label {
+    display: inline-block;
+    width: 75px;
+    margin-left: 10px;
+    font-size: 1.2em;
+    float: left;
+    color: white;
+}
+
+
+.mainForm {
+	position: fixed;
+	top: 66.5%;
+	left: 41.6%;
+	z-index: 3;
+    height: 300px;
+    width: 350px;
+    margin: 0 auto;
+    font-size: 1.2em;
+}
+
+.mainForm h3 {
+    text-align: center;
+}
+
+.mainForm label {
+	z-index: 3;
+    display: inline-block;
+    width: 150px;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.formSubmit {
+	z-index: 3;
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 14px;
+    font-size: 1.2em;
+    width: 100px;
+    background-color: #5c0e05;
+    border-radius: 2px;
+    border-color: black;
+    padding: 3px 0px;
+    color: white;
+	font-family: heavy_data;
+    text-decoration: none;
+}
+
+.formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
+    color: white;
+}
+
+.formSubmit:hover {
+    transition: background-color 0.4s ease;
+    background-color: #d1d1d1;
+}
+
+#user, #pass, #pass2, #oldPass{
+	z-index: 3;
+    text-align: center;
+    font-size: 1.1em;
+    width: 150px;
+	background-color: #d1d1d1;
+	color: #5c0e05;
+    border-radius: 6px;
+}
+
+#user:focus, #pass:focus, #pass2:focus {
+    outline: none;
+    box-shadow: 0px 0px 1px 1px #55acee;
+}
+
+
+#mainMessage {
+	position: fixed;
+	top: 61.7%;
+	left: 45%;
+	text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #c7c7a1;
+    font-style: italic;
+	width: 220px;
+}
+
+#errorMessage {
+	position: fixed;
+	top: 87.5%;
+	left: 45%;
+	text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: Yellow;
+    font-style: italic;
+	width: 220px;
+}
+
+
+#statss {
+	position: fixed !important;
+	top: 10%;
+	left: 40%;
+    min-width: 400px;
+    margin: 0 auto;
+	color: white !important;
+}
+
+.stats {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 2px;
+    margin-bottom: 2px;
+	text-align: center;
+    padding: 10px;
+    min-height:60px;
+    overflow: hidden;
+}
+
+
+img.statsFace {
+    margin-left: 25px;
+    margin-right: 10px;
+    height: 60px;
+    border-radius: 4px;
+    margin-top:23px;
+    float:left;
+}
+
+.labled {
+	font-size: 3em !important;
+	color: #c7c7a1 !important;
+}
+
+.labled2 {
+	color: yellow !important;
+}
+
+.labled3 {
+	position: fixed !important;
+	margin-left: -70px;
+	margin-top: 24px;
+	color: #c7c7a1 !important;
+}
+
+.scoreList {
+	position: fixed !important;
+	top: 10%;
+	left: 40%;
+	
+}
+
+.score {
+	width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 2px;
+    padding: 10px;
+    min-height:60px;
+    overflow: hidden;
+	color: white !important;
+	
+}
+
+#scores {
+	
+}
+
+h3.emptyStats {
+    width: 400px;
+    font-size: 1.5em;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 18px;
+}
+
+.stats:first-child {
+    margin-top: 10px;
+}
+
+.stats:last-child {
+    margin-bottom:10px;
+}
+
+#canvasBack {
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  position: fixed;
+  z-index: -5;
+  pointer-events: none;
+}
+
+#ribbon {
+	position: fixed;
+	opacity: 0.75;
+	top: .1%;
+	left: calc(50% - 29px) !important;
+	z-index: -1;
+}
+
+#gameButton {
+	font-size: 1.8em !important;
+	top: -15px;
+	left: -10px;
+	outline: none !important;
+}
+
+#loginButton {
+	position: fixed;
+	left: 31.5% !important;
+	font-size: 1.5em !important;
+	outline: none !important;
+}
+
+#signupButton {
+	position: fixed;
+	left: 63.5% !important;
+	font-size: 1.5em !important;
+}
+
+#moreContent {
+	position: fixed !important;
+	top: 10% !important;
+	left: 40% !important;
+}
+
+.disabledLink {
+	color: red !important;
+	text-decoration : none;
+	pointer-events: none;
+	cursor: default;
+}
+
+
+        canvas{border:1px solid gray;}
+		#audioControls{ display:none;}
+		@font-face {
+			font-family: heavy_data;
+			src: url(media/heavy_data.ttf);
+		}
+		#videoPos {
+			position: absolute;
+			margin: auto;
+			left: calc(25% + 1px);
+			top: 10%;
+			z-index: 2;
+		}
+		#videoPos2 {
+			position: absolute;
+			margin: auto;
+			left: calc(25% + 1px);
+			top: 10%;
+			z-index: -2;
+		}
+		#videoPos3 {
+			position: absolute;
+			margin: auto;
+			left: calc(25% + 330px);
+			top: calc(10% + 275px);
+			z-index: -2;
+		}
+		#videoPos4 {
+			position: absolute;
+			margin: auto;
+			left: calc(25% + 1px);
+			top: 10%;
+			z-index: -2;
+		}
+		#border {
+			position: absolute;
+			margin: auto;
+			left: 25%;
+			top: calc(10% + 310px);
+			z-index: 5;
+		}
+		#bigBorder {
+			position: absolute;
+			margin: auto;
+			left: calc(25% - 5px);
+			top: 10%;
+			z-index: 7;
+		}
+		#smallBar1 {
+			position: absolute;
+			margin: auto;
+			left: calc(25% + 690px);
+			top: calc(10% + 314px);
+			z-index: 3;
+		}
+		#smallBar2 {
+			position: absolute;
+			margin: auto;
+			left: calc(25% + 325px);
+			top: calc(10% + 314px);
+			z-index: 3;
+		}
+		#bar {
+			position: absolute;
+			margin: auto;
+			top: 10%;
+			left: calc(25% + 1px);
+			z-index: -2;
+		}
+		#trueTop {
+			position: absolute;
+			margin: auto;
+			top: 10%;
+			left: 25%;
+			z-index: 7;
+		}
+		#top {
+			position: absolute;
+			margin: auto;
+			top: 10%;
+			left: 25%;
+			z-index: 6;
+		}
+		#main {
+			position: absolute;
+			margin: auto;
+			top: 10%;
+			left: 25%;
+			z-index: 1;
+		}
+		#canvas1 {
+			position:absolute;
+			z-index: 1;
+		}
+      
+		#canvas2{
+			position:absolute;
+			z-index: 8;
+		}
+		
+		#canvas4{
+			position:absolute;
+			z-index: 9;
+		}
