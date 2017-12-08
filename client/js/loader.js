@@ -438,6 +438,10 @@ app.images16 = Object.freeze({
 	iBigBar: "images/InterfaceBigBar.png",
 	iSmallBar: "images/InterfaceSmallBar.png",
 	redRibbon: "images/RedRibbon.png",
+	redRibbonRust: "images/RedRibbonRust.png",
+	redRibbonBronze: "images/RedRibbonBronze.png",
+	redRibbonSilver: "images/RedRibbonSilver.png",
+	redRibbonGold: "images/RedRibbonGold.png",
 	warning: "images/WarningImage.png"
  });
  
@@ -626,6 +630,10 @@ window.onload = function(){
      {id: "iBigBar", src:app.gameUI.iBigBar},
 	 {id: "iSmallBar", src:app.gameUI.iSmallBar},
 	 {id: "redRibbon", src:app.gameUI.redRibbon},
+	 {id: "redRibbonRust", src:app.gameUI.redRibbonRust},
+	 {id: "redRibbonBronze", src:app.gameUI.redRibbonBronze},
+	 {id: "redRibbonSilver", src:app.gameUI.redRibbonSilver},
+	 {id: "redRibbonGold", src:app.gameUI.redRibbonGold},
 	 {id: "warning", src:app.gameUI.warning},
 	 
 	 //Android 18 LOADING

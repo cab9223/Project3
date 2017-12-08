@@ -37,21 +37,51 @@ app.main = {
 	totalPoints: 0,
 	
 	//Statistics
-	
-	hsTotal : 0,//hsTotal
-	hs18 : 0, //hs18
-	hs17 : 0, //hs17
+	version: 1,//level 
+	exp: 0,
+	hsTotal: 0,//hsTotal
+	//hsTotalT0: 0,//hsTotal0
+	hsTotalT1: 0,//hsTotal1
+	hsTotalT2: 0,//hsTotal2
+	hsTotalT3: 0,//hsTotal3
+	hs18: 0, //hs18
+	hs17: 0, //hs17
 	recentVictory: false,
 	victories: 0,
 	hsVictory : 0,//hsVictory
 	kills: 0,
 	recentDomination: false,
 	dominations: 0,
+	dominationsRR: 0,
 	recentPerfect: false,
 	perfects: 0,
 	destroyed: 0,
+	meleeStat: 0,
+	powerMelee: 0,
+	blastsStat: 0,
+	powerBlasts: 0,
+	blockingCount: 0,
+	shieldingCount: 0,
 	taunts: 0,
 	teleports: 0,
+	piccoloKill: 0, 
+	vegetaKill: 0,
+	gohanKill: 0,
+	tienKill: 0,
+	krillinKill: 0,
+	
+	lootT1: 0,
+	lootT2: 0,
+	lootT3: 0,
+	lootT4: 0,
+	
+	modsT1: undefined,
+	modsT2: undefined,
+	modsT3: undefined,
+	modsT4: undefined,
+	modsT5: undefined,
+	
+	conditions: 0,
 	
 	userNew: false,
 	
@@ -286,6 +316,22 @@ app.main = {
 		image = new Image();
 		image.src =  app.gameUI.redRibbon;
 		this.redRibbon = image;
+		
+		image = new Image();
+		image.src =  app.gameUI.redRibbonRust;
+		this.redRibbonRust = image;
+		
+		image = new Image();
+		image.src =  app.gameUI.redRibbonBronze;
+		this.redRibbonBronze = image;
+		
+		image = new Image();
+		image.src =  app.gameUI.redRibbonSilver;
+		this.redRibbonSilver = image;
+		
+		image = new Image();
+		image.src =  app.gameUI.redRibbonGold;
+		this.redRibbonGold = image;
 		
 		image = new Image();
 		image.src =  app.environment.titleBar;
@@ -5242,6 +5288,8 @@ app.main = {
 					this.environment.dark = true;
 					this.android17.superSpeed = false;
 					this.android18.superSpeed = false;
+					this.android18.vanish = false;
+					this.android17.vanish = false;
 					if(this.android18.position.x < this.android18.LEFTWALL.x + 200){
 						this.android18.fight = true;
 						this.android18.appear = true;
@@ -5390,6 +5438,8 @@ app.main = {
 				if(this.sceneTimer < 2){
 					this.android17.superSpeed = false;
 					this.android18.superSpeed = false;
+					this.android18.vanish = false;
+					this.android17.vanish = false;
 					this.environment.dark = true;
 					this.sound.playBGAudioScene(5);
 					this.tempPosition = this.android17.position.y;
@@ -5589,6 +5639,8 @@ app.main = {
 				if(this.sceneTimer < 2){
 					this.android17.superSpeed = false;
 					this.android18.superSpeed = false;
+					this.android18.vanish = false;
+					this.android17.vanish = false;
 					this.environment.dark = true;
 					this.sound.playBGAudioScene(11);
 					this.sound.playVoice1(38);
@@ -5903,6 +5955,8 @@ app.main = {
 				if(this.sceneTimer < 2){
 					this.android17.superSpeed = false;
 					this.android18.superSpeed = false;
+					this.android18.vanish = false;
+					this.android17.vanish = false;
 					this.environment.dark = true;
 					this.sound.playBGAudioScene(12);
 					this.sound.playVoice1(54);
@@ -6574,8 +6628,8 @@ app.main = {
 				this.android17.evasion = false;
 				this.android17.encounter = true;
 				this.aiChoice4 = .96; */
-				//this.vegeta.endurance = 1;
-				//this.vegeta.health = 1;
+				this.vegeta.endurance = 1;
+				this.vegeta.health = 1;
 				//this.android17.counter = 0;
 				//this.dodgeChance2 = .05;
 				//this.android17.fight = true;
@@ -7090,6 +7144,7 @@ app.main = {
 		
 		this.calculated = false;
 		this.saved = false;
+		this.conditions = 0;
 		
 		
 		this.init();
@@ -7877,6 +7932,90 @@ app.main = {
 		} // end if
 		
 		if(this.gameState == this.GAME_STATE.VICTORY){
+			
+			
+			if(this.calculated != true){
+			
+			this.totalScore = (this.roundScore - this.roundScore2);
+			this.totalPoints = (this.roundScore + this.roundScore2);
+			
+			if(this.roundScore > this.hs18){
+				this.hs18 = this.roundScore;
+			}
+			if(this.roundScore2 > this.hs17){
+				this.hs17 = this.roundScore2;
+			}
+			
+			
+			
+			if(this.totalScore > 0){
+				this.victories += 1;
+				this.recentVictory = true;
+				this.conditions += 1;
+				if(this.totalScore > this.hsVictory){
+					this.hsVictory = this.totalScore;
+				}
+			} else {
+				this.recentVictory = false;
+			}
+			if(this.trueEnding == true){
+				this.trueDomination += 1;
+			} else {
+				this.classicDomination += 1;
+			}
+			if(this.android18.health > 99){
+				this.perfects += 1;
+				this.recentPerfect = true;
+				this.conditions += 1;
+			} else {
+				this.recentPerfect = false;
+			}
+			
+			this.recentDomination = true;
+			
+			if(this.trueEnding == false){
+				this.dominations += 1;
+				this.conditions += 1;
+			} else if(this.trueEnding == true){
+				this.dominationsRR += 1;
+				this.conditions += 2;
+			}
+			
+			if(this.conditions == 0){
+				if(this.totalPoints > this.hsTotal){
+					this.hsTotal = this.totalPoints;
+				}
+			} else if(this.conditions == 1){
+				if(this.totalPoints > this.hsTotalT1){
+					this.hsTotalT1 = this.totalPoints;
+				}
+			} else if(this.conditions == 2){
+				if(this.totalPoints > this.hsTotalT2){
+					this.hsTotalT2 = this.totalPoints;
+				}
+			} else if(this.conditions > 2){
+				if(this.totalPoints > this.hsTotalT3){
+					this.hsTotalT3 = this.totalPoints;
+				}
+			}
+			
+			this.exp += this.totalPoints;
+			
+			//draw
+			
+			
+			
+			
+			this.calculated = true;
+			
+			}
+			
+			if(this.saved != true){
+				document.querySelector("#gameButton").click();
+				document.querySelector("#statSubmit").click();
+				this.saved = true;
+			}
+			
 			ctx.save();
 			ctx.fillStyle = "rgb(0,34,7)";
 			ctx.fillRect(0,0, 1024, 768);
@@ -7895,57 +8034,16 @@ app.main = {
 			ctx.save();
 			ctx.translate(this.WIDTH/2 - 65, this.HEIGHT/2 - 65);
 			//ctx.scale(3,3);
-			ctx.drawImage(this.redRibbon,0,0);
+			if(this.conditions == 0){
+				ctx.drawImage(this.redRibbonRust,-30,-18);
+			} else if(this.conditions == 1){
+				ctx.drawImage(this.redRibbonBronze,-30,-18);
+			} else if(this.conditions == 2){
+				ctx.drawImage(this.redRibbonSilver,-30,-18);
+			} else if(this.conditions > 2){
+				ctx.drawImage(this.redRibbonGold,-30,-18);
+			}
 			ctx.restore();
-			
-			if(this.calculated != true){
-			
-			this.totalScore = (this.roundScore - this.roundScore2);
-			this.totalPoints = (this.roundScore + this.roundScore2);
-			
-			if(this.roundScore > this.hs18){
-				this.hs18 = this.roundScore;
-			}
-			if(this.roundScore2 > this.hs17){
-				this.hs17 = this.roundScore2;
-			}
-			if(this.totalPoints > this.hsTotal){
-				this.hsTotal = this.totalPoints;
-			}
-			if(this.totalScore > 0){
-				this.victories += 1;
-				this.recentVictory = true;
-				if(this.totalScore > this.hsVictory){
-					this.hsVictory = this.totalScore;
-				}
-			} else {
-				this.recentVictory = false;
-			}
-			if(this.trueEnding == true){
-				this.trueDomination += 1;
-			} else {
-				this.classicDomination += 1;
-			}
-			if(this.android18.health > 99){
-				this.perfects += 1;
-				this.recentPerfect = true;
-			} else {
-				this.recentPerfect = false;
-			}
-			
-			this.recentDomination = true;
-			
-			this.dominations += 1;
-			
-			this.calculated = true;
-			
-			}
-			
-			if(this.saved != true){
-				document.querySelector("#gameButton").click();
-				document.querySelector("#statSubmit").click();
-				this.saved = true;
-			}
 			
 			
 			if(this.trueEnding == true){
@@ -7987,7 +8085,7 @@ app.main = {
 			ctx.save();
 			ctx.translate(this.WIDTH/2 - 65, this.HEIGHT/2 - 75);
 			//ctx.scale(3,3);
-			ctx.drawImage(this.redRibbon,0,0);
+			ctx.drawImage(this.redRibbonRust,-30,-18);
 			ctx.restore();
 			
 			if(this.calculated != true){
@@ -8006,6 +8104,8 @@ app.main = {
 			}
 			
 			this.destroyed += 1;
+			
+			this.exp += this.totalPoints;
 			
 			this.recentPerfect = false;
 			this.recentVictory = false;

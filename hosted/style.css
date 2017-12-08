@@ -19,7 +19,7 @@ html, body {
 #userM {
 	margin: auto;
 	position: fixed;
-	top: 27%;
+	top: 13%;
 	left: 1%;
 	color: yellow;
 	font-size: 2.5em;
@@ -93,6 +93,24 @@ nav {
 	pointer-events: none;
 }
 
+#borderSide {
+	position: fixed;
+	left: 33.5%;
+	top: 11.8%;
+	height: 400px;
+	pointer-events: none;
+}
+
+#borderSideBack {
+	position: fixed;
+	left: 33.5%;
+	top: 11.8%;
+	height: 400px;
+	width: 665px;
+	opacity: 0.6;
+    background-color: rgb(0,34,7);
+}
+
 #border3 {
 	z-index: -1;
 	position: fixed;
@@ -100,6 +118,114 @@ nav {
 	left: 39.4% !important;
 	top: 9.8% !important;
 	pointer-events: none;
+}
+
+#borderOther4 {
+	z-index: -1;
+	position: fixed;
+	left: 62.4%;
+	top: 9.8%;
+    width: 450px;
+    height: 750px;
+	opacity: 0.6;
+    background-color: rgb(0,34,7);
+	pointer-events: none;
+}
+
+#borderOther5 {
+	z-index: -1;
+	position: fixed;
+	left: 16.4%;
+	top: 9.8%;
+    width: 450px;
+    height: 750px;
+	opacity: 0.6;
+    background-color: rgb(0,34,7);
+	pointer-events: none;
+}
+
+#borderOther6 {
+	z-index: -1;
+	position: fixed;
+	left: 39.4%;
+	top: 9.8%;
+    width: 450px;
+    height: 750px;
+	opacity: 0.6;
+    background-color: rgb(0,34,7);
+	pointer-events: none;
+}
+
+#border4 {
+	z-index: -1;
+	position: fixed;
+	width: 450px;
+	left: 62.4% !important;
+	top: 9.8% !important;
+	pointer-events: none;
+}
+
+#border5 {
+	z-index: -1;
+	position: fixed;
+	width: 450px;
+	left: 16.4% !important;
+	top: 9.8% !important;
+	pointer-events: none;
+}
+
+#border6 {
+	z-index: -1;
+	position: fixed;
+	width: 450px;
+	left: 39.4% !important;
+	top: 9.8% !important;
+	pointer-events: none;
+}
+
+#machine1 {
+	z-index: -1;
+	position: fixed;
+	width: 410px;
+	left: 63% !important;
+	top: 9.8% !important;
+	opacity: .85;
+	pointer-events: none;
+}
+
+#machine2 {
+	z-index: -1;
+	position: fixed;
+	width: 450px;
+	left: 16.4% !important;
+	top: 9.8% !important;
+	opacity: .85;
+	pointer-events: none;
+}
+
+#digital1 {
+	z-index: -2;
+	position: fixed;
+	transform: scale(-1, 1);
+	left: 62.4% !important;
+	top: 9.8% !important;
+	opacity: .5;
+	pointer-events: none;
+}
+
+#digital2 {
+	z-index: -2;
+	position: fixed;
+	left: 16.4% !important;
+	top: 9.8% !important;
+	opacity: .5;
+	pointer-events: none;
+}
+
+#tiny {
+	position:fixed;
+	top:0%;
+	font-size:0.7em;
 }
 
 #art {
@@ -149,7 +275,7 @@ nav:nth-child(1) {
     height: 35px;
     width: 900px;
     margin-top:0px;
-    padding-top:10px;
+    padding-top:0px;
 }
 
 .statsForm label {
@@ -204,11 +330,75 @@ nav:nth-child(1) {
     text-decoration: none;
 }
 
-.formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
+.formSubmit:focus, .formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
     color: white;
+	outline:0;
 }
 
 .formSubmit:hover {
+    transition: background-color 0.4s ease;
+    background-color: #d1d1d1;
+}
+
+.formSubmit2 {
+	z-index: 3;
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: -25px;
+	margin-bottom: 30px;
+    font-size: 1.5em;
+    width: 150px;
+    background-color: #5c0e05;
+    border-radius: 2px;
+    border-color: black;
+    padding: 3px 0px;
+    color: white;
+	font-family: heavy_data;
+    text-decoration: none;
+}
+
+.formSubmit2:focus, .formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
+    color: white;
+	outline:0;
+}
+
+.formSubmit2:hover {
+    transition: background-color 0.4s ease;
+    background-color: #d1d1d1;
+}
+
+.buttonBlock {
+	margin: 0 auto;
+	margin-left: 50px;
+}
+
+.formSubmit3 {
+	z-index: 3;
+    transition: background-color 0.4s ease;
+    display: inline;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: -25px;
+	margin-bottom: 10px;
+    font-size: 1.2em;
+    width: 80px;
+    background-color: #5c0e05;
+    border-radius: 2px;
+    border-color: black;
+    padding: 3px 0px;
+    color: white;
+	font-family: heavy_data;
+    text-decoration: none;
+}
+
+.formSubmit3:focus, .formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
+    color: white;
+	outline:0;
+}
+
+.formSubmit3:hover {
     transition: background-color 0.4s ease;
     background-color: #d1d1d1;
 }
@@ -253,10 +443,24 @@ nav:nth-child(1) {
 	width: 220px;
 }
 
+#modsDivv2 {
+	position: fixed !important;
+	top: 15%;
+	left: 40.8%;
+    min-width: 400px;
+    margin: 0 auto;
+	text-align: center;
+	line-height: 0em; 
+	font-size: 1.5em;
+	margin: 0 auto;
+	padding-bottom: 0px;
+	color: white !important;
+}
+
 
 #statss {
 	position: fixed !important;
-	top: 10%;
+	top: 8%;
 	left: 40%;
     min-width: 400px;
     margin: 0 auto;
@@ -279,9 +483,51 @@ img.statsFace {
     margin-left: 25px;
     margin-right: 10px;
     height: 60px;
+	width: 120px;
     border-radius: 4px;
-    margin-top:23px;
+    margin-top: 21px;
     float:left;
+	pointer-events: none;
+}
+
+img.scoreFace {
+	margin-left: 20px;
+	margin-top: 5px;
+    height: 80px;
+	opacity: .8;
+	pointer-events: none;
+}
+
+.scoreType {
+	position: fixed;
+	margin-top: -140px;
+	margin-left: 120px;
+    height: 60px;
+}
+
+#profile {
+	z-index:1;
+	position: fixed;
+	top: 21%;
+	left: 41%;
+    height: 100px;
+	width: 100px;
+	pointer-events: none;
+}
+
+#proff {
+	z-index:1;
+	position: fixed;
+	top: 43%;
+	left: 42%;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.profilePic {
+    height: 200px;
+	width: 392px;
+	pointer-events: none;
 }
 
 .labled {
@@ -295,14 +541,20 @@ img.statsFace {
 
 .labled3 {
 	position: fixed !important;
-	margin-left: -70px;
+	margin-left: -150px;
 	margin-top: 24px;
 	color: #c7c7a1 !important;
 }
 
+.labled4 {
+	margin-left: 3px;
+	font-size: .6em !important;
+	color: gray !important;
+}
+
 .scoreList {
 	position: fixed !important;
-	top: 10%;
+	top: 25%;
 	left: 40%;
 	
 }
@@ -310,9 +562,8 @@ img.statsFace {
 .score {
 	width: 400px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 2px;
-    padding: 10px;
     min-height:60px;
     overflow: hidden;
 	color: white !important;

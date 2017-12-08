@@ -1301,6 +1301,7 @@ app.Android18 = (function(){
 				}
 				ctx.drawImage(this.kick,-25,8);
 			} else if(app.main.chance > .3) {
+				app.main.meleeStat += 1;
 				this.missed = false;
 				this.kicks = false;
 				this.basic = false;
@@ -1308,6 +1309,7 @@ app.Android18 = (function(){
 				this.fight = false;
 				this.attacking = false;
 			} else if(app.main.chance <= .3) {
+				app.main.meleeStat += 1;
 				this.missed = false;
 				this.kicks = true;
 				this.basic = false;
@@ -1366,6 +1368,7 @@ app.Android18 = (function(){
 				ctx.drawImage(this.kick,-25,8);
 			} else if(app.main.chance > .3) {
 				ctx.drawImage(this.flyUp,0,10);
+				app.main.meleeStat += 1;
 				this.missed = false;
 				this.kicks = false;
 				this.fight = false;
@@ -1373,6 +1376,7 @@ app.Android18 = (function(){
 				this.basic = false;
 			} else if(app.main.chance <= .3) {
 				ctx.drawImage(this.kick,-25,8);
+				app.main.meleeStat += 1;
 				this.missed = false;
 				this.kicks = true;
 				this.fight = false;
@@ -1426,6 +1430,7 @@ app.Android18 = (function(){
 					ctx.drawImage(this.hardPunch,-42,20);
 				} else {
 					ctx.drawImage(this.hardPunch,-42,20);
+					app.main.powerMelee += 1;
 					this.punchMove = false;
 					this.shortMove = false;
 					this.missed = false;
@@ -1454,6 +1459,7 @@ app.Android18 = (function(){
 					ctx.drawImage(this.launch,-35,0);
 				} else {
 					ctx.drawImage(this.launch,-35,0);
+					app.main.powerMelee += 1;
 					this.kickMove = false;
 					this.shortMove = false;
 					this.missed = false;
@@ -1478,6 +1484,7 @@ app.Android18 = (function(){
 					ctx.drawImage(this.hardKick,-68,0);
 				} else {
 					ctx.drawImage(this.hardKick,-68,0);
+					app.main.powerMelee += 1;
 					this.kickMove = false;
 					this.longMove = false;
 					this.missed = false;
@@ -1507,6 +1514,7 @@ app.Android18 = (function(){
 					ctx.drawImage(this.hardPunchAir,-2,25);
 				} else {
 					ctx.drawImage(this.hardPunchAir,-2,25);
+					app.main.powerMelee += 1;
 					this.punchMove = false;
 					this.shortMove = false;
 					this.missed = false;
@@ -1531,6 +1539,7 @@ app.Android18 = (function(){
 					ctx.drawImage(this.hardKick,-68,0);
 				} else {
 					ctx.drawImage(this.hardKick,-68,0);
+					app.main.powerMelee += 1;
 					this.kickMove = false;
 					this.longMove = false;
 					this.missed = false;
@@ -1548,6 +1557,7 @@ app.Android18 = (function(){
 			} else if(this.counter < 6){
 				if(this.arms == false){
 					if(this.counter < 4){
+						app.main.blastsStat += 1;
 						app.main.sound.playEnergyAttack(5);
 						this.energy -= 4;
 						if(this.left == true){
@@ -1559,6 +1569,7 @@ app.Android18 = (function(){
 					ctx.drawImage(this.rightBlast,-15,11);
 				} else if(this.arms == true){
 					if(this.counter < 4){
+						app.main.blastsStat += 1;
 						app.main.sound.playEnergyAttack(5);
 						this.energy -= 4;
 						if(this.left == true){
@@ -1629,6 +1640,7 @@ app.Android18 = (function(){
 				}
 				if(this.arms == false){
 					if(this.counter < 14){
+						app.main.powerBlasts += 1;
 						app.main.sound.playEnergyAttack(24);
 						this.energy -= 15;
 						if(this.left == true){
@@ -1640,6 +1652,7 @@ app.Android18 = (function(){
 					ctx.drawImage(this.attackE,-30,5);
 				} else if(this.arms == true){
 					if(this.counter == 14){
+						app.main.powerBlasts += 1;
 						app.main.sound.playEnergyAttack(24);
 						this.energy -= 15;
 						if(this.left == true){
@@ -1705,6 +1718,7 @@ app.Android18 = (function(){
 				}
 				if(this.arms == false){
 					if(this.counter < 14){
+						app.main.powerBlasts += 1;
 						app.main.sound.playEnergyAttack(1);
 						this.energy -= 15;
 						if(this.left == true){
@@ -1716,6 +1730,7 @@ app.Android18 = (function(){
 					ctx.drawImage(this.finger,-30,-5);
 				} else if(this.arms == true){
 					if(this.counter < 14){
+						app.main.powerBlasts += 1;
 						app.main.sound.playEnergyAttack(1);
 						this.energy -= 15;
 						if(this.left == true){
@@ -1739,6 +1754,7 @@ app.Android18 = (function(){
 			}
 		//BLOCK
 		} else if(this.blocking == true && this.hit == false && (this.stun == false || this.superSpeed == true) && this.fieldOn == false){
+			app.main.blockingCount += 1;
 			ctx.drawImage(this.block,0,10);
 		//FIELD
 		} else if(this.blocking == true && this.fieldOn == true){
@@ -1774,6 +1790,7 @@ app.Android18 = (function(){
 				}
 				ctx.globalAlpha = .5;
 				if(this.counter > 4){
+					app.main.shieldingCount += 1;
 				if(this.fieldTimer < 2){
 					ctx.drawImage(this.field1,-48,-5);
 				} else if(this.fieldTimer < 3){

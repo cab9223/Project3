@@ -3245,6 +3245,7 @@ app.Android18 = function () {
 					}
 					ctx.drawImage(this.kick, -25, 8);
 				} else if (app.main.chance > .3) {
+					app.main.meleeStat += 1;
 					this.missed = false;
 					this.kicks = false;
 					this.basic = false;
@@ -3252,6 +3253,7 @@ app.Android18 = function () {
 					this.fight = false;
 					this.attacking = false;
 				} else if (app.main.chance <= .3) {
+					app.main.meleeStat += 1;
 					this.missed = false;
 					this.kicks = true;
 					this.basic = false;
@@ -3310,6 +3312,7 @@ app.Android18 = function () {
 					ctx.drawImage(this.kick, -25, 8);
 				} else if (app.main.chance > .3) {
 					ctx.drawImage(this.flyUp, 0, 10);
+					app.main.meleeStat += 1;
 					this.missed = false;
 					this.kicks = false;
 					this.fight = false;
@@ -3317,6 +3320,7 @@ app.Android18 = function () {
 					this.basic = false;
 				} else if (app.main.chance <= .3) {
 					ctx.drawImage(this.kick, -25, 8);
+					app.main.meleeStat += 1;
 					this.missed = false;
 					this.kicks = true;
 					this.fight = false;
@@ -3370,6 +3374,7 @@ app.Android18 = function () {
 						ctx.drawImage(this.hardPunch, -42, 20);
 					} else {
 						ctx.drawImage(this.hardPunch, -42, 20);
+						app.main.powerMelee += 1;
 						this.punchMove = false;
 						this.shortMove = false;
 						this.missed = false;
@@ -3398,6 +3403,7 @@ app.Android18 = function () {
 						ctx.drawImage(this.launch, -35, 0);
 					} else {
 						ctx.drawImage(this.launch, -35, 0);
+						app.main.powerMelee += 1;
 						this.kickMove = false;
 						this.shortMove = false;
 						this.missed = false;
@@ -3422,6 +3428,7 @@ app.Android18 = function () {
 						ctx.drawImage(this.hardKick, -68, 0);
 					} else {
 						ctx.drawImage(this.hardKick, -68, 0);
+						app.main.powerMelee += 1;
 						this.kickMove = false;
 						this.longMove = false;
 						this.missed = false;
@@ -3451,6 +3458,7 @@ app.Android18 = function () {
 						ctx.drawImage(this.hardPunchAir, -2, 25);
 					} else {
 						ctx.drawImage(this.hardPunchAir, -2, 25);
+						app.main.powerMelee += 1;
 						this.punchMove = false;
 						this.shortMove = false;
 						this.missed = false;
@@ -3475,6 +3483,7 @@ app.Android18 = function () {
 						ctx.drawImage(this.hardKick, -68, 0);
 					} else {
 						ctx.drawImage(this.hardKick, -68, 0);
+						app.main.powerMelee += 1;
 						this.kickMove = false;
 						this.longMove = false;
 						this.missed = false;
@@ -3492,6 +3501,7 @@ app.Android18 = function () {
 				} else if (this.counter < 6) {
 					if (this.arms == false) {
 						if (this.counter < 4) {
+							app.main.blastsStat += 1;
 							app.main.sound.playEnergyAttack(5);
 							this.energy -= 4;
 							if (this.left == true) {
@@ -3503,6 +3513,7 @@ app.Android18 = function () {
 						ctx.drawImage(this.rightBlast, -15, 11);
 					} else if (this.arms == true) {
 						if (this.counter < 4) {
+							app.main.blastsStat += 1;
 							app.main.sound.playEnergyAttack(5);
 							this.energy -= 4;
 							if (this.left == true) {
@@ -3573,6 +3584,7 @@ app.Android18 = function () {
 						}
 						if (this.arms == false) {
 							if (this.counter < 14) {
+								app.main.powerBlasts += 1;
 								app.main.sound.playEnergyAttack(24);
 								this.energy -= 15;
 								if (this.left == true) {
@@ -3584,6 +3596,7 @@ app.Android18 = function () {
 							ctx.drawImage(this.attackE, -30, 5);
 						} else if (this.arms == true) {
 							if (this.counter == 14) {
+								app.main.powerBlasts += 1;
 								app.main.sound.playEnergyAttack(24);
 								this.energy -= 15;
 								if (this.left == true) {
@@ -3650,6 +3663,7 @@ app.Android18 = function () {
 						}
 						if (this.arms == false) {
 							if (this.counter < 14) {
+								app.main.powerBlasts += 1;
 								app.main.sound.playEnergyAttack(1);
 								this.energy -= 15;
 								if (this.left == true) {
@@ -3661,6 +3675,7 @@ app.Android18 = function () {
 							ctx.drawImage(this.finger, -30, -5);
 						} else if (this.arms == true) {
 							if (this.counter < 14) {
+								app.main.powerBlasts += 1;
 								app.main.sound.playEnergyAttack(1);
 								this.energy -= 15;
 								if (this.left == true) {
@@ -3684,6 +3699,7 @@ app.Android18 = function () {
 				}
 				//BLOCK
 			} else if (this.blocking == true && this.hit == false && (this.stun == false || this.superSpeed == true) && this.fieldOn == false) {
+				app.main.blockingCount += 1;
 				ctx.drawImage(this.block, 0, 10);
 				//FIELD
 			} else if (this.blocking == true && this.fieldOn == true) {
@@ -3719,6 +3735,7 @@ app.Android18 = function () {
 					}
 					ctx.globalAlpha = .5;
 					if (this.counter > 4) {
+						app.main.shieldingCount += 1;
 						if (this.fieldTimer < 2) {
 							ctx.drawImage(this.field1, -48, -5);
 						} else if (this.fieldTimer < 3) {
@@ -10356,6 +10373,10 @@ app.gameUI = Object.freeze({
 			iBigBar: "images/InterfaceBigBar.png",
 			iSmallBar: "images/InterfaceSmallBar.png",
 			redRibbon: "images/RedRibbon.png",
+			redRibbonRust: "images/RedRibbonRust.png",
+			redRibbonBronze: "images/RedRibbonBronze.png",
+			redRibbonSilver: "images/RedRibbonSilver.png",
+			redRibbonGold: "images/RedRibbonGold.png",
 			warning: "images/WarningImage.png"
 });
 
@@ -10479,7 +10500,7 @@ window.onload = function () {
 			{ id: "background", src: app.environment.city }, { id: "backgroundTop", src: app.environment.cityTop }, { id: "cityDamage1", src: app.environment.cityDamage1 }, { id: "titleBar", src: app.environment.titleBar }, { id: "digitalBackground", src: app.environment.digitalBackground }, { id: "deadPiccolo", src: app.environment.deadPiccolo }, { id: "deadPiccolo2", src: app.environment.deadPiccolo2 }, { id: "deadVegeta2", src: app.environment.deadVegeta2 }, { id: "deadVegeta3", src: app.environment.deadVegeta3 }, { id: "deadVegeta4", src: app.environment.deadVegeta4 }, { id: "building1", src: app.environment.building1 }, { id: "lab1", src: app.environment.lab1 }, { id: "remote2", src: app.environment.remote2 }, { id: "a19Head", src: app.environment.a19Head }, { id: "smoke1", src: app.environment.smoke1 }, { id: "smoke2", src: app.environment.smoke2 }, { id: "smoke3", src: app.environment.smoke3 }, { id: "cape1", src: app.environment.cape1 }, { id: "cape2", src: app.environment.cape2 }, { id: "cape3", src: app.environment.cape3 }, { id: "cape4", src: app.environment.cape4 }, { id: "yamcha1", src: app.environment.yamcha1 }, { id: "yamcha2", src: app.environment.yamcha2 }, { id: "yamcha3", src: app.environment.yamcha3 }, { id: "yamcha4", src: app.environment.yamcha4 }, { id: "yamcha5", src: app.environment.yamcha5 }, { id: "chaotzu1", src: app.environment.chaotzu1 }, { id: "chaotzu2", src: app.environment.chaotzu2 }, { id: "chaotzu3", src: app.environment.chaotzu3 }, { id: "chaotzu4", src: app.environment.chaotzu4 }, { id: "yajirobe1", src: app.environment.yajirobe1 }, { id: "groundDustA1", src: app.environment.groundDustA1 }, { id: "groundDustA2", src: app.environment.groundDustA2 }, { id: "groundDustA3", src: app.environment.groundDustA3 }, { id: "groundDustA4", src: app.environment.groundDustA4 }, { id: "groundDustB1", src: app.environment.groundDustB1 }, { id: "groundDustB2", src: app.environment.groundDustB2 }, { id: "groundDustB3", src: app.environment.groundDustB3 }, { id: "groundDustB4", src: app.environment.groundDustB4 }, { id: "groundDustC1", src: app.environment.groundDustC1 }, { id: "groundDustC2", src: app.environment.groundDustC2 }, { id: "groundDustC3", src: app.environment.groundDustC3 }, { id: "groundDustC4", src: app.environment.groundDustC4 }, { id: "gerosSpy1", src: app.environment.gerosSpy1 }, { id: "smog1", src: app.environment.smog1 }, { id: "smog2", src: app.environment.smog2 }, { id: "smog3", src: app.environment.smog3 }, { id: "smog4", src: app.environment.smog4 }, { id: "smog5", src: app.environment.smog5 }, { id: "smog6", src: app.environment.smog6 }, { id: "smog7", src: app.environment.smog7 }, { id: "smog8", src: app.environment.smog8 }, { id: "smog9", src: app.environment.smog9 }, { id: "smog10", src: app.environment.smog10 }, { id: "smog11", src: app.environment.smog11 }, { id: "smog12", src: app.environment.smog12 }, { id: "smog13", src: app.environment.smog13 }, { id: "smog14", src: app.environment.smog14 }, { id: "smog15", src: app.environment.smog15 }, { id: "smog16", src: app.environment.smog16 },
 
 			//Interface LOADING
-			{ id: "iBorder", src: app.gameUI.iBorder }, { id: "iBackground", src: app.gameUI.iBackground }, { id: "iBigBar", src: app.gameUI.iBigBar }, { id: "iSmallBar", src: app.gameUI.iSmallBar }, { id: "redRibbon", src: app.gameUI.redRibbon }, { id: "warning", src: app.gameUI.warning },
+			{ id: "iBorder", src: app.gameUI.iBorder }, { id: "iBackground", src: app.gameUI.iBackground }, { id: "iBigBar", src: app.gameUI.iBigBar }, { id: "iSmallBar", src: app.gameUI.iSmallBar }, { id: "redRibbon", src: app.gameUI.redRibbon }, { id: "redRibbonRust", src: app.gameUI.redRibbonRust }, { id: "redRibbonBronze", src: app.gameUI.redRibbonBronze }, { id: "redRibbonSilver", src: app.gameUI.redRibbonSilver }, { id: "redRibbonGold", src: app.gameUI.redRibbonGold }, { id: "warning", src: app.gameUI.warning },
 
 			//Android 18 LOADING
 			{ id: "18Stance", src: app.images18.stance }, { id: "18StanceUp", src: app.images18.stanceUp }, { id: "18StanceDown", src: app.images18.stanceDown }, { id: "18SlowFly", src: app.images18.slowFly }, { id: "18FastFly", src: app.images18.fastFly }, { id: "18FlyUp", src: app.images18.flyUp }, { id: "18FlyUpUp", src: app.images18.flyUpUp }, { id: "18FlyUpDown", src: app.images18.flyUpDown }, { id: "18FlyDownSlow", src: app.images18.flyDownSlow }, { id: "18FlyDownFast", src: app.images18.flyDownFast }, { id: "18Reverse", src: app.images18.reverse }, { id: "18LeftPunch", src: app.images18.leftPunch }, { id: "18RightPunch", src: app.images18.rightPunch }, { id: "18PunchPrep", src: app.images18.punchPrep }, { id: "18PunchPrepAir", src: app.images18.punchPrepAir }, { id: "18RightPunchAir", src: app.images18.rightPunchAir }, { id: "18LeftPunchAir", src: app.images18.leftPunchAir }, { id: "18Hit1", src: app.images18.hit1 }, { id: "18Hit2", src: app.images18.hit2 }, { id: "18AttackE", src: app.images18.attackE }, { id: "18BlastPrep", src: app.images18.blastPrep }, { id: "18HardKick", src: app.images18.hardKick }, { id: "18Ground", src: app.images18.ground }, { id: "18FallSide", src: app.images18.fallSide }, { id: "18HardKickPrep", src: app.images18.hardKickPrep }, { id: "18HardKickSwing", src: app.images18.hardKickSwing }, { id: "18HardPunch", src: app.images18.hardPunch }, { id: "18HardPunchAir", src: app.images18.hardPunchAir }, { id: "18HardPunchAirPrep", src: app.images18.hardPunchAirPrep }, { id: "18HardPunchAirSwing", src: app.images18.hardPunchAirSwing }, { id: "18HardPunchPrep", src: app.images18.hardPunchPrep }, { id: "18HitHard", src: app.images18.hitHard }, { id: "18Injured", src: app.images18.injured }, { id: "18Kick", src: app.images18.kick }, { id: "18KickPrep", src: app.images18.kickPrep }, { id: "18LeftBlast", src: app.images18.leftBlast }, { id: "18RightBlast", src: app.images18.rightBlast }, { id: "18Block", src: app.images18.block }, { id: "18FallKick", src: app.images18.fallKick }, { id: "18FallDown", src: app.images18.fallDown }, { id: "18Taunt", src: app.images18.taunt }, { id: "18launchPrep", src: app.images18.launchPrep }, { id: "18launchSwing", src: app.images18.launchSwing }, { id: "18launch", src: app.images18.launch }, { id: "18finger", src: app.images18.finger }, { id: "18BlastSky", src: app.images18.blastSky }, { id: "18EnergyDown", src: app.images18.energyDown }, { id: "18Special1", src: app.images18.special1 }, { id: "18Special2", src: app.images18.special2 }, { id: "18Mad1", src: app.images18.mad1 }, { id: "18Field1", src: app.images18.field1 }, { id: "18Field2", src: app.images18.field2 }, { id: "18Combat1", src: app.images18.combat1 },
@@ -10555,8 +10576,13 @@ app.main = (_app$main = {
 	totalPoints: 0,
 
 	//Statistics
-
+	version: 1, //level 
+	exp: 0,
 	hsTotal: 0, //hsTotal
+	//hsTotalT0: 0,//hsTotal0
+	hsTotalT1: 0, //hsTotal1
+	hsTotalT2: 0, //hsTotal2
+	hsTotalT3: 0, //hsTotal3
 	hs18: 0, //hs18
 	hs17: 0, //hs17
 	recentVictory: false,
@@ -10565,11 +10591,36 @@ app.main = (_app$main = {
 	kills: 0,
 	recentDomination: false,
 	dominations: 0,
+	dominationsRR: 0,
 	recentPerfect: false,
 	perfects: 0,
 	destroyed: 0,
+	meleeStat: 0,
+	powerMelee: 0,
+	blastsStat: 0,
+	powerBlasts: 0,
+	blockingCount: 0,
+	shieldingCount: 0,
 	taunts: 0,
 	teleports: 0,
+	piccoloKill: 0,
+	vegetaKill: 0,
+	gohanKill: 0,
+	tienKill: 0,
+	krillinKill: 0,
+
+	lootT1: 0,
+	lootT2: 0,
+	lootT3: 0,
+	lootT4: 0,
+
+	modsT1: undefined,
+	modsT2: undefined,
+	modsT3: undefined,
+	modsT4: undefined,
+	modsT5: undefined,
+
+	conditions: 0,
 
 	userNew: false,
 
@@ -10746,6 +10797,22 @@ app.main = (_app$main = {
 	image = new Image();
 	image.src = app.gameUI.redRibbon;
 	this.redRibbon = image;
+
+	image = new Image();
+	image.src = app.gameUI.redRibbonRust;
+	this.redRibbonRust = image;
+
+	image = new Image();
+	image.src = app.gameUI.redRibbonBronze;
+	this.redRibbonBronze = image;
+
+	image = new Image();
+	image.src = app.gameUI.redRibbonSilver;
+	this.redRibbonSilver = image;
+
+	image = new Image();
+	image.src = app.gameUI.redRibbonGold;
+	this.redRibbonGold = image;
 
 	image = new Image();
 	image.src = app.environment.titleBar;
@@ -15569,6 +15636,8 @@ app.main = (_app$main = {
 					this.environment.dark = true;
 					this.android17.superSpeed = false;
 					this.android18.superSpeed = false;
+					this.android18.vanish = false;
+					this.android17.vanish = false;
 					if (this.android18.position.x < this.android18.LEFTWALL.x + 200) {
 						this.android18.fight = true;
 						this.android18.appear = true;
@@ -15717,6 +15786,8 @@ app.main = (_app$main = {
 				if (this.sceneTimer < 2) {
 					this.android17.superSpeed = false;
 					this.android18.superSpeed = false;
+					this.android18.vanish = false;
+					this.android17.vanish = false;
 					this.environment.dark = true;
 					this.sound.playBGAudioScene(5);
 					this.tempPosition = this.android17.position.y;
@@ -15914,6 +15985,8 @@ app.main = (_app$main = {
 				if (this.sceneTimer < 2) {
 					this.android17.superSpeed = false;
 					this.android18.superSpeed = false;
+					this.android18.vanish = false;
+					this.android17.vanish = false;
 					this.environment.dark = true;
 					this.sound.playBGAudioScene(11);
 					this.sound.playVoice1(38);
@@ -16237,6 +16310,8 @@ app.main = (_app$main = {
 				if (this.sceneTimer < 2) {
 					this.android17.superSpeed = false;
 					this.android18.superSpeed = false;
+					this.android18.vanish = false;
+					this.android17.vanish = false;
 					this.environment.dark = true;
 					this.sound.playBGAudioScene(12);
 					this.sound.playVoice1(54);
@@ -16887,14 +16962,14 @@ app.main = (_app$main = {
 			}
 			if (myKeys.keydown[myKeys.KEYBOARD.KEY_J] == true) {
 				//CHEAT CODE
-				this.environment.shake = true;
+				//this.environment.shake = true;
 				//this.environment.remote = true;
 				/* this.android17.decision= .5;
     this.android17.evasion = false;
     this.android17.encounter = true;
     this.aiChoice4 = .96; */
-				//this.vegeta.endurance = 1;
-				//this.vegeta.health = 1;
+				this.vegeta.endurance = 1;
+				this.vegeta.health = 1;
 				//this.android17.counter = 0;
 				//this.dodgeChance2 = .05;
 				//this.android17.fight = true;
@@ -16902,8 +16977,8 @@ app.main = (_app$main = {
 				//this.android17.fieldOn = true;
 				//this.android17.stun = true;
 				//this.android17.hurtBlasting = true;
-				this.android18.endurance = 1;
-				this.android18.health = 1;
+				//this.android18.endurance = 1;
+				//this.android18.health = 1;
 				//this.android17.cinematic = true;
 				//this.vegeta.blastTrigger = true;
 				//this.vegeta.blasting = true;
@@ -17379,6 +17454,7 @@ app.main = (_app$main = {
 
 	this.calculated = false;
 	this.saved = false;
+	this.conditions = 0;
 
 	this.init();
 
@@ -18173,6 +18249,84 @@ app.main = (_app$main = {
 	} // end if
 
 	if (this.gameState == this.GAME_STATE.VICTORY) {
+
+		if (this.calculated != true) {
+
+			this.totalScore = this.roundScore - this.roundScore2;
+			this.totalPoints = this.roundScore + this.roundScore2;
+
+			if (this.roundScore > this.hs18) {
+				this.hs18 = this.roundScore;
+			}
+			if (this.roundScore2 > this.hs17) {
+				this.hs17 = this.roundScore2;
+			}
+
+			if (this.totalScore > 0) {
+				this.victories += 1;
+				this.recentVictory = true;
+				this.conditions += 1;
+				if (this.totalScore > this.hsVictory) {
+					this.hsVictory = this.totalScore;
+				}
+			} else {
+				this.recentVictory = false;
+			}
+			if (this.trueEnding == true) {
+				this.trueDomination += 1;
+			} else {
+				this.classicDomination += 1;
+			}
+			if (this.android18.health > 99) {
+				this.perfects += 1;
+				this.recentPerfect = true;
+				this.conditions += 1;
+			} else {
+				this.recentPerfect = false;
+			}
+
+			this.recentDomination = true;
+
+			if (this.trueEnding == false) {
+				this.dominations += 1;
+				this.conditions += 1;
+			} else if (this.trueEnding == true) {
+				this.dominationsRR += 1;
+				this.conditions += 2;
+			}
+
+			if (this.conditions == 0) {
+				if (this.totalPoints > this.hsTotal) {
+					this.hsTotal = this.totalPoints;
+				}
+			} else if (this.conditions == 1) {
+				if (this.totalPoints > this.hsTotalT1) {
+					this.hsTotalT1 = this.totalPoints;
+				}
+			} else if (this.conditions == 2) {
+				if (this.totalPoints > this.hsTotalT2) {
+					this.hsTotalT2 = this.totalPoints;
+				}
+			} else if (this.conditions > 2) {
+				if (this.totalPoints > this.hsTotalT3) {
+					this.hsTotalT3 = this.totalPoints;
+				}
+			}
+
+			this.exp += this.totalPoints;
+
+			//draw
+
+
+			this.calculated = true;
+		}
+
+		if (this.saved != true) {
+			document.querySelector("#gameButton").click();
+			document.querySelector("#statSubmit").click();
+			this.saved = true;
+		}
+
 		ctx.save();
 		ctx.fillStyle = "rgb(0,34,7)";
 		ctx.fillRect(0, 0, 1024, 768);
@@ -18191,56 +18345,16 @@ app.main = (_app$main = {
 		ctx.save();
 		ctx.translate(this.WIDTH / 2 - 65, this.HEIGHT / 2 - 65);
 		//ctx.scale(3,3);
-		ctx.drawImage(this.redRibbon, 0, 0);
+		if (this.conditions == 0) {
+			ctx.drawImage(this.redRibbonRust, 0, 0);
+		} else if (this.conditions == 1) {
+			ctx.drawImage(this.redRibbonBronze, 0, 0);
+		} else if (this.conditions == 2) {
+			ctx.drawImage(this.redRibbonSilver, 0, 0);
+		} else if (this.conditions > 2) {
+			ctx.drawImage(this.redRibbonGold, 0, 0);
+		}
 		ctx.restore();
-
-		if (this.calculated != true) {
-
-			this.totalScore = this.roundScore - this.roundScore2;
-			this.totalPoints = this.roundScore + this.roundScore2;
-
-			if (this.roundScore > this.hs18) {
-				this.hs18 = this.roundScore;
-			}
-			if (this.roundScore2 > this.hs17) {
-				this.hs17 = this.roundScore2;
-			}
-			if (this.totalPoints > this.hsTotal) {
-				this.hsTotal = this.totalPoints;
-			}
-			if (this.totalScore > 0) {
-				this.victories += 1;
-				this.recentVictory = true;
-				if (this.totalScore > this.hsVictory) {
-					this.hsVictory = this.totalScore;
-				}
-			} else {
-				this.recentVictory = false;
-			}
-			if (this.trueEnding == true) {
-				this.trueDomination += 1;
-			} else {
-				this.classicDomination += 1;
-			}
-			if (this.android18.health > 99) {
-				this.perfects += 1;
-				this.recentPerfect = true;
-			} else {
-				this.recentPerfect = false;
-			}
-
-			this.recentDomination = true;
-
-			this.dominations += 1;
-
-			this.calculated = true;
-		}
-
-		if (this.saved != true) {
-			document.querySelector("#gameButton").click();
-			document.querySelector("#statSubmit").click();
-			this.saved = true;
-		}
 
 		if (this.trueEnding == true) {
 			this.fillText(this.ctx, "The Beginning?", this.WIDTH / 2, this.HEIGHT / 2 - 110, "50pt heavy_data", "#c9be03");
@@ -18281,7 +18395,7 @@ app.main = (_app$main = {
 		ctx.save();
 		ctx.translate(this.WIDTH / 2 - 65, this.HEIGHT / 2 - 75);
 		//ctx.scale(3,3);
-		ctx.drawImage(this.redRibbon, 0, 0);
+		ctx.drawImage(this.redRibbonRust, -25, -18);
 		ctx.restore();
 
 		if (this.calculated != true) {
@@ -18300,6 +18414,8 @@ app.main = (_app$main = {
 			}
 
 			this.destroyed += 1;
+
+			this.exp += this.totalPoints;
 
 			this.recentPerfect = false;
 			this.recentVictory = false;
@@ -22680,6 +22796,7 @@ app.Vegeta = function () {
 					}
 					if (this.deadCount == false) {
 						app.main.kills += 1;
+						app.main.vegetaKill += 1;
 						this.deadCount = true;
 					}
 					if (this.stunCounter > 40) {
@@ -23883,6 +24000,7 @@ app.Vegeta = function () {
 					ctx.drawImage(this.groundPiccolo, 5, 80);
 					if (this.deadCount == false) {
 						app.main.kills += 1;
+						app.main.piccoloKill += 1;
 						this.deadCount = true;
 					}
 					if (this.stunCounter > 10) {
@@ -24834,6 +24952,7 @@ app.Vegeta = function () {
 						} else {
 							if (this.deadCount == false) {
 								app.main.kills += 1;
+								app.main.gohanKill += 1;
 								this.deadCount = true;
 							}
 							ctx.drawImage(this.groundGohan, 0, 10);
@@ -25340,6 +25459,7 @@ app.Vegeta = function () {
 					ctx.drawImage(this.groundTien, 0, 0);
 					if (this.deadCount == false) {
 						app.main.kills += 1;
+						app.main.tienKill += 1;
 						this.deadCount = true;
 					}
 					if (this.stunCounter > 10) {
@@ -25768,6 +25888,7 @@ app.Vegeta = function () {
 					ctx.drawImage(this.groundKrillin, 0, 0);
 					if (this.deadCount == false) {
 						app.main.kills += 1;
+						app.main.krillinKill += 1;
 						this.deadCount = true;
 					}
 					if (this.stunCounter > 10) {

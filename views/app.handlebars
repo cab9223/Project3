@@ -17,8 +17,9 @@
 	<div class="navlink"><a id="stat" href="/game">Statistics</a></div>
 	<div class="navlink"><a id="scoreButton" href="/scores">Unrivaled Scores</a></div>
 	<div class="navlink"><a id="gameButton" href="/game">Game</a></div>
+	<div class="navlink"><a id="modsButton" href="/game">Blueprints</a></div>
     <div class="navlink"><a id="passwordButton" href="/passwordChange">User Account</a></div>
-	<div class="navlink"><a href="/logout">Log out</a></div>
+	<div class="navlink"><a href="/logout"><span id="tiny" >Log out</span></a></div>
     <img id="ribbon" src="images/RedRibbon.png" width=85px>
 	</div>
   </nav>
@@ -30,16 +31,76 @@
   </div>
   <section id="scores">
   </section>
+  <div id="profile">
+  </div>
+  <div id="modsDivv">
+  </div>
   <section id="moreContent">
   </section>
   <div id="visuals">
     <div id="loginBorder"></div>
+	<div id="borderSideBack">
+		<div id="proff">
+		<label htmlFor="profileChange">Change Profile: </label>
+	    <input id="profileChange" type="text" name="profileChange" placeholder="Image Link"/>
+		<button id="profileButton" class="formSubmit">Update</button>
+		</div>
+	</div>
+	<img id="borderSide" src="/assets/img/BorderSide.png">
     <img id="border2" src="/assets/img/BorderLogin.png">
 	<div id="userScreen">{{username}}</div>
   </div>
   <div id="visuals2">
     <div id="borderOther"></div>
     <img id="border3" src="/assets/img/BorderOther.png">
+  </div>
+  <div id="visuals3">
+    <div id="modsDivv2">
+    <div id="modsDiv0">
+	  <h1 class="labled"style="font-size: 1.5em !important; padding-bottom: 20px !important">Modification Structure</h1>
+	  <label for="mods0"><p><b>Tier 1</b></p></label>
+	  <select name="mods0" id="mods0" size="1" style="width: 150px">
+	  </select>
+	  </div>
+	  <div id="modsDiv1">
+	    <label for="modsDiv1"><p><b>Tier 2</b></p></label>
+	    <select name="mods1" id="mods1" size="1" style="width: 150px">
+	    </select>
+	    <select name="mods2" id="mods2" size="1" style="width: 150px">
+        </select>
+	  </div>
+	  <div id="modsDiv2">
+	    <label for="modsDiv2"><p><b>Tier 3</b></p></label>
+	    <select name="mods3" id="mods3" size="1" style="width: 150px">
+	    </select>
+	  </div>
+	  <div id="modsDiv3">
+	    <label for="modsDiv3"><p><b>Tier 4</b></p></label>
+	    <select name="mods4" id="mods4" size="1" style="width: 150px">
+	    </select>
+	    <select name="mods5" id="mods5" size="1" style="width: 150px">
+        </select>
+	  </div>
+	  <div id="modsDiv4">
+	    <label for="modsDiv4"><p><b>Tier 5</b></p></label>
+	    <select name="mods6" id="mods6" size="1" style="width: 150px">
+	    </select>
+	    <select name="mods7" id="mods7" size="1" style="width: 150px">
+        </select>
+	  </div>
+  </div>
+    <div id="borderOther4">
+	<img id="digital1" src="/assets/img/Digital2.png">
+	<img id="machine1" src="/assets/images/android18Machine2.png">
+	</div>
+	<div id="borderOther5">
+	<img id="digital2" src="/assets/img/Digital2.png">
+	<img id="machine2" src="/assets/images/android17Machine2.png">
+	</div>
+	<div id="borderOther6"></div>
+    <img id="border4" src="/assets/img/BorderOther.png">
+	<img id="border5" src="/assets/img/BorderOther.png">
+	<img id="border6" src="/assets/img/BorderOther.png">
   </div>
   <h3><span id="userM">Account Data</span></h3>
   <div id="allContent">

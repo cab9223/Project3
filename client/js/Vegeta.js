@@ -3238,6 +3238,7 @@ app.Vegeta = (function(){
 					}
 					if(this.deadCount == false) {
 						app.main.kills += 1;
+						app.main.vegetaKill += 1;
 						this.deadCount = true;
 					}
 					if(this.stunCounter > 40){
@@ -4441,6 +4442,7 @@ app.Vegeta = (function(){
 					ctx.drawImage(this.groundPiccolo,5,80);
 					if(this.deadCount == false) {
 						app.main.kills += 1;
+						app.main.piccoloKill += 1;
 						this.deadCount = true;
 					}
 					if(this.stunCounter > 10){
@@ -5392,6 +5394,7 @@ app.Vegeta = (function(){
 						} else {
 							if(this.deadCount == false) {
 								app.main.kills += 1;
+								app.main.gohanKill += 1;
 								this.deadCount = true;
 							}
 							ctx.drawImage(this.groundGohan,0,10);
@@ -5897,6 +5900,7 @@ app.Vegeta = (function(){
 					ctx.drawImage(this.groundTien,0,0);
 					if(this.deadCount == false) {
 						app.main.kills += 1;
+						app.main.tienKill += 1;
 						this.deadCount = true;
 					}
 					if(this.stunCounter > 10){
@@ -6324,6 +6328,7 @@ app.Vegeta = (function(){
 					ctx.drawImage(this.groundKrillin,0,0);
 					if(this.deadCount == false) {
 						app.main.kills += 1;
+						app.main.krillinKill += 1;
 						this.deadCount = true;
 					}
 					if(this.stunCounter > 10){

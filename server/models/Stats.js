@@ -16,10 +16,47 @@ const StatsSchema = new mongoose.Schema({
     required: true,
     default: 'Test',
     trim: true,
+    unique: true,
     set: setName,
   },
 
+  version: {
+    type: Number,
+    min: 1,
+    default: 1,
+  },
+
+  exp: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  profile: {
+    type: String,
+    default: 'https://media.giphy.com/media/RbI2UL5r9Aufm/giphy.gif',
+    trim: true,
+  },
+
   hsTotal: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  hsTotalT1: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  hsTotalT2: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  hsTotalT3: {
     type: Number,
     min: 0,
     default: 0,
@@ -71,6 +108,12 @@ const StatsSchema = new mongoose.Schema({
     default: 0,
   },
 
+  dominationsRR: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
   recentPerfect: {
     type: Boolean,
     default: false,
@@ -100,6 +143,110 @@ const StatsSchema = new mongoose.Schema({
     default: 0,
   },
 
+  melee: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  blasts: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  powerBlasts: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  blocking: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  shielding: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  piccoloKill: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  vegetaKill: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  gohanKill: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  tienKill: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  krillinKill: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  lootT1: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  lootT2: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  lootT3: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  lootT4: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+
+  modsT1: {
+    any: {},
+  },
+
+  modsT2: {
+    any: {},
+  },
+
+  modsT3: {
+    any: {},
+  },
+
+  modsT4: {
+    any: {},
+  },
+
+  modsT5: {
+    any: {},
+  },
+
   owner: {
     type: mongoose.Schema.ObjectId,
     required: true,
@@ -114,7 +261,13 @@ const StatsSchema = new mongoose.Schema({
 
 StatsSchema.statics.toAPI = (doc) => ({
   name: doc.name,
+  version: doc.version,
+  exp: doc.exp,
+  profile: doc.profile,
   hsTotal: doc.hsTotal,
+  hsTotalT1: doc.hsTotalT1,
+  hsTotalT2: doc.hsTotalT2,
+  hsTotalT3: doc.hsTotalT3,
   hs18: doc.hs18,
   hs17: doc.hs17,
   recentVictory: doc.recentVictory,
@@ -123,11 +276,31 @@ StatsSchema.statics.toAPI = (doc) => ({
   kills: doc.kills,
   recentDomination: doc.recentDomination,
   dominations: doc.dominations,
+  dominationsRR: doc.dominationsRR,
   recentPerfect: doc.recentPerfect,
   perfects: doc.perfects,
   destroyed: doc.destroyed,
   taunts: doc.taunts,
   teleports: doc.teleports,
+  melee: doc.melee,
+  blasts: doc.blasts,
+  powerBlasts: doc.powerBlasts,
+  blocking: doc.blocking,
+  shielding: doc.shielding,
+  piccoloKill: doc.piccoloKill,
+  vegetaKill: doc.vegetaKill,
+  gohanKill: doc.gohanKill,
+  tienKill: doc.tienKill,
+  krillinKill: doc.krillinKill,
+  lootT1: doc.lootT1,
+  lootT2: doc.lootT2,
+  lootT3: doc.lootT3,
+  lootT4: doc.lootT4,
+  modsT1: doc.modsT1,
+  modsT2: doc.modsT2,
+  modsT3: doc.modsT3,
+  modsT4: doc.modsT4,
+  modsT5: doc.modsT5,
 });
 
 // Find all stats data for owner
@@ -146,7 +319,7 @@ StatsSchema.statics.removeByOwner = (ownerId, callback) => {
     owner: convertId(ownerId),
   };
 
-  return StatsModel.deleteMany(search, callback);
+  return StatsModel.deleteOne(search, callback);
 };
 
 // find stats based on score
